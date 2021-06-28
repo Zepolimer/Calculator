@@ -31,7 +31,7 @@ class Calculator {
 
 clear() {
     this.currentOperand = '0'
-    this.previousOperant = ''
+    this.previousOperand = ''
     this.operation = undefined
 }
 
@@ -43,7 +43,8 @@ delete() {
 }
 
 appendValue(number) {
-    if(number === '.' && this.currentOperand.includes('.')) return
+    if (this.currentOperand.length >= 11) return false;
+    if(number === '.' && this.currentOperand.includes('.')) return;
     if (number !== '.' && this.currentOperand === '0') {
         this.currentOperand = ''
         this.currentOperand = this.currentOperand.toString() + number.toString()
