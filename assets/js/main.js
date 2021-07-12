@@ -43,7 +43,7 @@ delete() {
 }
 
 appendValue(number) {
-    if (this.currentOperand.length >= 11) return false;
+    if (this.currentOperand.length >= 10) return false;
     if(number === '.' && this.currentOperand.includes('.')) return;
     if (number !== '.' && this.currentOperand === '0') {
         this.currentOperand = ''
@@ -84,7 +84,7 @@ compute() {
           default:
                 return
     }
-    this.currentOperand = computation
+    this.currentOperand = parseFloat(computation).toFixed(3);
     this.operation = undefined
     this.previousOperand = ''
 }
